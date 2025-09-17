@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "F:/C/Nebula/external/glm-build/glm",
+		"source" : "external/glm-src/glm"
+	}
+}

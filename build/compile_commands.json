@@ -1,0 +1,152 @@
+[
+{
+  "directory": "F:/C/Nebula/build",
+  "command": "F:\\mingw64\\bin\\g++.exe  @CMakeFiles/Nebula.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Nebula.dir\\src\\Nebula\\Application.cpp.obj -c F:\\C\\Nebula\\src\\Nebula\\Application.cpp",
+  "file": "F:/C/Nebula/src/Nebula/Application.cpp",
+  "output": "CMakeFiles/Nebula.dir/src/Nebula/Application.cpp.obj"
+},
+{
+  "directory": "F:/C/Nebula/build",
+  "command": "F:\\mingw64\\bin\\g++.exe  @CMakeFiles/Nebula.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Nebula.dir\\src\\Nebula\\Window.cpp.obj -c F:\\C\\Nebula\\src\\Nebula\\Window.cpp",
+  "file": "F:/C/Nebula/src/Nebula/Window.cpp",
+  "output": "CMakeFiles/Nebula.dir/src/Nebula/Window.cpp.obj"
+},
+{
+  "directory": "F:/C/Nebula/build",
+  "command": "F:\\mingw64\\bin\\g++.exe  @CMakeFiles/Nebula.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Nebula.dir\\src\\SandBox\\sandbox.cpp.obj -c F:\\C\\Nebula\\src\\SandBox\\sandbox.cpp",
+  "file": "F:/C/Nebula/src/SandBox/sandbox.cpp",
+  "output": "CMakeFiles/Nebula.dir/src/SandBox/sandbox.cpp.obj"
+},
+{
+  "directory": "F:/C/Nebula/external/glfw-build/src",
+  "command": "F:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\context.c.obj -c F:\\C\\Nebula\\external\\glfw-src\\src\\context.c",
+  "file": "F:/C/Nebula/external/glfw-src/src/context.c",
+  "output": "F:/C/Nebula/external/glfw-build/src/CMakeFiles/glfw.dir/context.c.obj"
+},
+{
+  "directory": "F:/C/Nebula/external/glfw-build/src",
+  "command": "F:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\init.c.obj -c F:\\C\\Nebula\\external\\glfw-src\\src\\init.c",
+  "file": "F:/C/Nebula/external/glfw-src/src/init.c",
+  "output": "F:/C/Nebula/external/glfw-build/src/CMakeFiles/glfw.dir/init.c.obj"
+},
+{
+  "directory": "F:/C/Nebula/external/glfw-build/src",
+  "command": "F:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\input.c.obj -c F:\\C\\Nebula\\external\\glfw-src\\src\\input.c",
+  "file": "F:/C/Nebula/external/glfw-src/src/input.c",
+  "output": "F:/C/Nebula/external/glfw-build/src/CMakeFiles/glfw.dir/input.c.obj"
+},
+{
+  "directory": "F:/C/Nebula/external/glfw-build/src",
+  "command": "F:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\monitor.c.obj -c F:\\C\\Nebula\\external\\glfw-src\\src\\monitor.c",
+  "file": "F:/C/Nebula/external/glfw-src/src/monitor.c",
+  "output": "F:/C/Nebula/external/glfw-build/src/CMakeFiles/glfw.dir/monitor.c.obj"
+},
+{
+  "directory": "F:/C/Nebula/external/glfw-build/src",
+  "command": "F:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\platform.c.obj -c F:\\C\\Nebula\\external\\glfw-src\\src\\platform.c",
+  "file": "F:/C/Nebula/external/glfw-src/src/platform.c",
+  "output": "F:/C/Nebula/external/glfw-build/src/CMakeFiles/glfw.dir/platform.c.obj"
+},
+{
+  "directory": "F:/C/Nebula/external/glfw-build/src",
+  "command": "F:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\vulkan.c.obj -c F:\\C\\Nebula\\external\\glfw-src\\src\\vulkan.c",
+  "file": "F:/C/Nebula/external/glfw-src/src/vulkan.c",
+  "output": "F:/C/Nebula/external/glfw-build/src/CMakeFiles/glfw.dir/vulkan.c.obj"
+},
+{
+  "directory": "F:/C/Nebula/external/glfw-build/src",
+  "command": "F:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\window.c.obj -c F:\\C\\Nebula\\external\\glfw-src\\src\\window.c",
+  "file": "F:/C/Nebula/external/glfw-src/src/window.c",
+  "output": "F:/C/Nebula/external/glfw-build/src/CMakeFiles/glfw.dir/window.c.obj"
+},
+{
+  "directory": "F:/C/Nebula/external/glfw-build/src",
+  "command": "F:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\egl_context.c.obj -c F:\\C\\Nebula\\external\\glfw-src\\src\\egl_context.c",
+  "file": "F:/C/Nebula/external/glfw-src/src/egl_context.c",
+  "output": "F:/C/Nebula/external/glfw-build/src/CMakeFiles/glfw.dir/egl_context.c.obj"
+},
+{
+  "directory": "F:/C/Nebula/external/glfw-build/src",
+  "command": "F:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\osmesa_context.c.obj -c F:\\C\\Nebula\\external\\glfw-src\\src\\osmesa_context.c",
+  "file": "F:/C/Nebula/external/glfw-src/src/osmesa_context.c",
+  "output": "F:/C/Nebula/external/glfw-build/src/CMakeFiles/glfw.dir/osmesa_context.c.obj"
+},
+{
+  "directory": "F:/C/Nebula/external/glfw-build/src",
+  "command": "F:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\null_init.c.obj -c F:\\C\\Nebula\\external\\glfw-src\\src\\null_init.c",
+  "file": "F:/C/Nebula/external/glfw-src/src/null_init.c",
+  "output": "F:/C/Nebula/external/glfw-build/src/CMakeFiles/glfw.dir/null_init.c.obj"
+},
+{
+  "directory": "F:/C/Nebula/external/glfw-build/src",
+  "command": "F:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\null_monitor.c.obj -c F:\\C\\Nebula\\external\\glfw-src\\src\\null_monitor.c",
+  "file": "F:/C/Nebula/external/glfw-src/src/null_monitor.c",
+  "output": "F:/C/Nebula/external/glfw-build/src/CMakeFiles/glfw.dir/null_monitor.c.obj"
+},
+{
+  "directory": "F:/C/Nebula/external/glfw-build/src",
+  "command": "F:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\null_window.c.obj -c F:\\C\\Nebula\\external\\glfw-src\\src\\null_window.c",
+  "file": "F:/C/Nebula/external/glfw-src/src/null_window.c",
+  "output": "F:/C/Nebula/external/glfw-build/src/CMakeFiles/glfw.dir/null_window.c.obj"
+},
+{
+  "directory": "F:/C/Nebula/external/glfw-build/src",
+  "command": "F:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\null_joystick.c.obj -c F:\\C\\Nebula\\external\\glfw-src\\src\\null_joystick.c",
+  "file": "F:/C/Nebula/external/glfw-src/src/null_joystick.c",
+  "output": "F:/C/Nebula/external/glfw-build/src/CMakeFiles/glfw.dir/null_joystick.c.obj"
+},
+{
+  "directory": "F:/C/Nebula/external/glfw-build/src",
+  "command": "F:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_module.c.obj -c F:\\C\\Nebula\\external\\glfw-src\\src\\win32_module.c",
+  "file": "F:/C/Nebula/external/glfw-src/src/win32_module.c",
+  "output": "F:/C/Nebula/external/glfw-build/src/CMakeFiles/glfw.dir/win32_module.c.obj"
+},
+{
+  "directory": "F:/C/Nebula/external/glfw-build/src",
+  "command": "F:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_time.c.obj -c F:\\C\\Nebula\\external\\glfw-src\\src\\win32_time.c",
+  "file": "F:/C/Nebula/external/glfw-src/src/win32_time.c",
+  "output": "F:/C/Nebula/external/glfw-build/src/CMakeFiles/glfw.dir/win32_time.c.obj"
+},
+{
+  "directory": "F:/C/Nebula/external/glfw-build/src",
+  "command": "F:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_thread.c.obj -c F:\\C\\Nebula\\external\\glfw-src\\src\\win32_thread.c",
+  "file": "F:/C/Nebula/external/glfw-src/src/win32_thread.c",
+  "output": "F:/C/Nebula/external/glfw-build/src/CMakeFiles/glfw.dir/win32_thread.c.obj"
+},
+{
+  "directory": "F:/C/Nebula/external/glfw-build/src",
+  "command": "F:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_init.c.obj -c F:\\C\\Nebula\\external\\glfw-src\\src\\win32_init.c",
+  "file": "F:/C/Nebula/external/glfw-src/src/win32_init.c",
+  "output": "F:/C/Nebula/external/glfw-build/src/CMakeFiles/glfw.dir/win32_init.c.obj"
+},
+{
+  "directory": "F:/C/Nebula/external/glfw-build/src",
+  "command": "F:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_joystick.c.obj -c F:\\C\\Nebula\\external\\glfw-src\\src\\win32_joystick.c",
+  "file": "F:/C/Nebula/external/glfw-src/src/win32_joystick.c",
+  "output": "F:/C/Nebula/external/glfw-build/src/CMakeFiles/glfw.dir/win32_joystick.c.obj"
+},
+{
+  "directory": "F:/C/Nebula/external/glfw-build/src",
+  "command": "F:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_monitor.c.obj -c F:\\C\\Nebula\\external\\glfw-src\\src\\win32_monitor.c",
+  "file": "F:/C/Nebula/external/glfw-src/src/win32_monitor.c",
+  "output": "F:/C/Nebula/external/glfw-build/src/CMakeFiles/glfw.dir/win32_monitor.c.obj"
+},
+{
+  "directory": "F:/C/Nebula/external/glfw-build/src",
+  "command": "F:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\win32_window.c.obj -c F:\\C\\Nebula\\external\\glfw-src\\src\\win32_window.c",
+  "file": "F:/C/Nebula/external/glfw-src/src/win32_window.c",
+  "output": "F:/C/Nebula/external/glfw-build/src/CMakeFiles/glfw.dir/win32_window.c.obj"
+},
+{
+  "directory": "F:/C/Nebula/external/glfw-build/src",
+  "command": "F:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_WIN32 -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -std=c99 -Wall -o CMakeFiles\\glfw.dir\\wgl_context.c.obj -c F:\\C\\Nebula\\external\\glfw-src\\src\\wgl_context.c",
+  "file": "F:/C/Nebula/external/glfw-src/src/wgl_context.c",
+  "output": "F:/C/Nebula/external/glfw-build/src/CMakeFiles/glfw.dir/wgl_context.c.obj"
+},
+{
+  "directory": "F:/C/Nebula/external/glad-build",
+  "command": "F:\\mingw64\\bin\\gcc.exe  @CMakeFiles/glad.dir/includes_C.rsp -g -o CMakeFiles\\glad.dir\\src\\glad.c.obj -c F:\\C\\Nebula\\external\\glad-build\\src\\glad.c",
+  "file": "F:/C/Nebula/external/glad-build/src/glad.c",
+  "output": "F:/C/Nebula/external/glad-build/CMakeFiles/glad.dir/src/glad.c.obj"
+}
+]
