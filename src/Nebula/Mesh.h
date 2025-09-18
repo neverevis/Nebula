@@ -4,13 +4,14 @@
 #include "Vertex.h"
 #include <vector>
 
+#include "VAO.h"
+
 class Mesh {
 public:
-    unsigned int VAO, VBO, EBO;
-    std::vector<Vertex> vertices;
-    std::vector<unsigned int> indices;
-
-    Mesh(const std::vector<Vertex>& vertices, const std::vector<unsigned int>& indices);
+    VAO vao;
+    VBO vertices;
+    EBO triangles;
+    Mesh();
     ~Mesh();
 };
 #endif

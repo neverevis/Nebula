@@ -1,10 +1,14 @@
 #include "Mesh.h"
 
-Mesh::Mesh(const std::vector<Vertex> &vertices, const std::vector<unsigned> &indices) {
-    glCreateVertexArrays(1,&VAO);
-    glCreateBuffers(1,&VBO);
-    glCreateBuffers(1,&EBO);
+Mesh::Mesh(){
+    vao.linkVBO(vertices,12 * sizeof(GLfloat));
+    vao.linkEBO(triangles);
+    vao.linkAttrib(0,3,0);
+    vao.linkAttrib(1,3,12);
+    vao.linkAttrib(2,4,24);
+    vao.linkAttrib(3,2,40);
 }
 
 Mesh::~Mesh() {
 }
+

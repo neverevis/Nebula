@@ -20,7 +20,26 @@ width(w), height(h), title(title) {
         std::cout << "[Window] Window initialized." << std::endl;
     }
 
+    GLFWmonitor* primary = glfwGetPrimaryMonitor();
+    if (primary) {
+        const GLFWvidmode* mode = glfwGetVideoMode(primary);
+        if (mode) {
+            int monitorWidth = mode->width;
+            int monitorHeight = mode->height;
+
+            int windowWidth;
+            int windowHeight;
+            glfwGetWindowSize(window,&windowWidth,&windowHeight);
+
+            int xpos = (monitorWidth - windowWidth) / 2;
+            int ypos = (monitorHeight - windowHeight) / 2;
+
+            glfwSetWindowPos(window, xpos, ypos);
+        }
+    }
+
     glfwMakeContextCurrent(window);
+    glfwSwapInterval(0);
 
     gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 

@@ -7,10 +7,11 @@ class Application {
 public:
     Window window;
     Renderer renderer;
-    Application();
+    Application(int width, int height, const std::string& title);
     virtual ~Application();
 
     void run();
-    virtual void step() = 0;
+
+    virtual void step(float dt) = 0;
 };
 #endif

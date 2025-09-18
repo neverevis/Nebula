@@ -56,6 +56,20 @@ build CMakeFiles/Nebula.dir/src/Nebula/Application.cpp.obj: CXX_COMPILER__Nebula
   OBJECT_DIR = CMakeFiles\Nebula.dir
   OBJECT_FILE_DIR = CMakeFiles\Nebula.dir\src\Nebula
 
+build CMakeFiles/Nebula.dir/src/Nebula/Camera.cpp.obj: CXX_COMPILER__Nebula_unscanned_Debug F$:/C/Nebula/src/Nebula/Camera.cpp || cmake_object_order_depends_target_Nebula
+  DEP_FILE = CMakeFiles\Nebula.dir\src\Nebula\Camera.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IF:/C/Nebula/external/glfw-src/include -IF:/C/Nebula/external/glad-src/include -IF:/C/Nebula/external/glm-src -IF:/C/Nebula/external/stb-src -IF:/C/Nebula/external/glad-build/include -IF:/C/Nebula/external/glm-src/glm/..
+  OBJECT_DIR = CMakeFiles\Nebula.dir
+  OBJECT_FILE_DIR = CMakeFiles\Nebula.dir\src\Nebula
+
+build CMakeFiles/Nebula.dir/src/Nebula/EBO.cpp.obj: CXX_COMPILER__Nebula_unscanned_Debug F$:/C/Nebula/src/Nebula/EBO.cpp || cmake_object_order_depends_target_Nebula
+  DEP_FILE = CMakeFiles\Nebula.dir\src\Nebula\EBO.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IF:/C/Nebula/external/glfw-src/include -IF:/C/Nebula/external/glad-src/include -IF:/C/Nebula/external/glm-src -IF:/C/Nebula/external/stb-src -IF:/C/Nebula/external/glad-build/include -IF:/C/Nebula/external/glm-src/glm/..
+  OBJECT_DIR = CMakeFiles\Nebula.dir
+  OBJECT_FILE_DIR = CMakeFiles\Nebula.dir\src\Nebula
+
 build CMakeFiles/Nebula.dir/src/Nebula/Mesh.cpp.obj: CXX_COMPILER__Nebula_unscanned_Debug F$:/C/Nebula/src/Nebula/Mesh.cpp || cmake_object_order_depends_target_Nebula
   DEP_FILE = CMakeFiles\Nebula.dir\src\Nebula\Mesh.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
@@ -72,6 +86,20 @@ build CMakeFiles/Nebula.dir/src/Nebula/Renderer.cpp.obj: CXX_COMPILER__Nebula_un
 
 build CMakeFiles/Nebula.dir/src/Nebula/Shader.cpp.obj: CXX_COMPILER__Nebula_unscanned_Debug F$:/C/Nebula/src/Nebula/Shader.cpp || cmake_object_order_depends_target_Nebula
   DEP_FILE = CMakeFiles\Nebula.dir\src\Nebula\Shader.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IF:/C/Nebula/external/glfw-src/include -IF:/C/Nebula/external/glad-src/include -IF:/C/Nebula/external/glm-src -IF:/C/Nebula/external/stb-src -IF:/C/Nebula/external/glad-build/include -IF:/C/Nebula/external/glm-src/glm/..
+  OBJECT_DIR = CMakeFiles\Nebula.dir
+  OBJECT_FILE_DIR = CMakeFiles\Nebula.dir\src\Nebula
+
+build CMakeFiles/Nebula.dir/src/Nebula/VAO.cpp.obj: CXX_COMPILER__Nebula_unscanned_Debug F$:/C/Nebula/src/Nebula/VAO.cpp || cmake_object_order_depends_target_Nebula
+  DEP_FILE = CMakeFiles\Nebula.dir\src\Nebula\VAO.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IF:/C/Nebula/external/glfw-src/include -IF:/C/Nebula/external/glad-src/include -IF:/C/Nebula/external/glm-src -IF:/C/Nebula/external/stb-src -IF:/C/Nebula/external/glad-build/include -IF:/C/Nebula/external/glm-src/glm/..
+  OBJECT_DIR = CMakeFiles\Nebula.dir
+  OBJECT_FILE_DIR = CMakeFiles\Nebula.dir\src\Nebula
+
+build CMakeFiles/Nebula.dir/src/Nebula/VBO.cpp.obj: CXX_COMPILER__Nebula_unscanned_Debug F$:/C/Nebula/src/Nebula/VBO.cpp || cmake_object_order_depends_target_Nebula
+  DEP_FILE = CMakeFiles\Nebula.dir\src\Nebula\VBO.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   INCLUDES = -IF:/C/Nebula/external/glfw-src/include -IF:/C/Nebula/external/glad-src/include -IF:/C/Nebula/external/glm-src -IF:/C/Nebula/external/stb-src -IF:/C/Nebula/external/glad-build/include -IF:/C/Nebula/external/glm-src/glm/..
   OBJECT_DIR = CMakeFiles\Nebula.dir
@@ -99,7 +127,7 @@ build CMakeFiles/Nebula.dir/src/SandBox/sandbox.cpp.obj: CXX_COMPILER__Nebula_un
 #############################################
 # Link the executable Nebula.exe
 
-build Nebula.exe: CXX_EXECUTABLE_LINKER__Nebula_Debug CMakeFiles/Nebula.dir/src/Nebula/Application.cpp.obj CMakeFiles/Nebula.dir/src/Nebula/Mesh.cpp.obj CMakeFiles/Nebula.dir/src/Nebula/Renderer.cpp.obj CMakeFiles/Nebula.dir/src/Nebula/Shader.cpp.obj CMakeFiles/Nebula.dir/src/Nebula/Window.cpp.obj CMakeFiles/Nebula.dir/src/SandBox/sandbox.cpp.obj | F$:/C/Nebula/external/glfw-build/src/libglfw3.a F$:/C/Nebula/external/glad-build/libglad.a || F$:/C/Nebula/external/glad-build/libglad.a F$:/C/Nebula/external/glfw-build/src/libglfw3.a
+build Nebula.exe: CXX_EXECUTABLE_LINKER__Nebula_Debug CMakeFiles/Nebula.dir/src/Nebula/Application.cpp.obj CMakeFiles/Nebula.dir/src/Nebula/Camera.cpp.obj CMakeFiles/Nebula.dir/src/Nebula/EBO.cpp.obj CMakeFiles/Nebula.dir/src/Nebula/Mesh.cpp.obj CMakeFiles/Nebula.dir/src/Nebula/Renderer.cpp.obj CMakeFiles/Nebula.dir/src/Nebula/Shader.cpp.obj CMakeFiles/Nebula.dir/src/Nebula/VAO.cpp.obj CMakeFiles/Nebula.dir/src/Nebula/VBO.cpp.obj CMakeFiles/Nebula.dir/src/Nebula/Window.cpp.obj CMakeFiles/Nebula.dir/src/SandBox/sandbox.cpp.obj | F$:/C/Nebula/external/glfw-build/src/libglfw3.a F$:/C/Nebula/external/glad-build/libglad.a || F$:/C/Nebula/external/glad-build/libglad.a F$:/C/Nebula/external/glfw-build/src/libglfw3.a
   FLAGS = -g
   LINK_FLAGS = -static-libgcc -static-libstdc++ -static
   LINK_LIBRARIES = F:/C/Nebula/external/glfw-build/src/libglfw3.a  -lopengl32  F:/C/Nebula/external/glad-build/libglad.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32

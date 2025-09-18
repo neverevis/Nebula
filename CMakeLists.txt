@@ -63,6 +63,14 @@ add_executable(Nebula ${SOURCES}
         src/Nebula/Mesh.cpp
         src/Nebula/Mesh.h
         src/Nebula/Vertex.h
+        src/Nebula/VBO.cpp
+        src/Nebula/VBO.h
+        src/Nebula/VAO.cpp
+        src/Nebula/VAO.h
+        src/Nebula/EBO.cpp
+        src/Nebula/EBO.h
+        src/Nebula/Camera.cpp
+        src/Nebula/Camera.h
 )
 
 find_package(OpenGL REQUIRED)
