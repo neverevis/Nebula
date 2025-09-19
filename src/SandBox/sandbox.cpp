@@ -1,27 +1,28 @@
 #include "../Nebula.h"
-#include "../Nebula/Shader.h"
+#include "../Nebula/Graphics/Shader.h"
+#include "../Nebula/Math/Camera.h"
 
 class Sandbox : public Application {
 public:
     Shader shader;
     Mesh mesh;
     Camera camera;
-    glm::mat4 model = glm::mat4(1);
-    glm::mat4 model1 = glm::mat4(1);
-    float rotation = 0;
+    Transform transform;
+    Transform floor[20][20];
+    float speed = 10;
 
     Sandbox() :
     Application(800,800,"Nebula Engine Sandbox"), shader("vertex.glsl","frag.glsl")
     {
         mesh.vertices = {
-            -0.5f,  0.5f,  0.5f,    0.0f,  0.0f,  0.0f,    1.0f,  0.0f,  0.0f,  1.0f,    0.0f,  0.0f, //       4-----------5
-             0.5f,  0.5f,  0.5f,    0.0f,  0.0f,  0.0f,    0.0f,  1.0f,  0.0f,  1.0f,    0.0f,  0.0f, //      /|          /|
-             0.5f, -0.5f,  0.5f,    0.0f,  0.0f,  0.0f,    0.0f,  0.0f,  1.0f,  1.0f,    0.0f,  0.0f, //     / |         / |
-            -0.5f, -0.5f,  0.5f,    0.0f,  0.0f,  0.0f,    1.0f,  1.0f,  0.0f,  1.0f,    0.0f,  0.0f, //    0--|--------1  |
-                                                                                                      //    |  7        |  6
-            -0.5f,  0.5f, -0.5f,    0.0f,  0.0f,  0.0f,    1.0f,  0.0f,  0.0f,  1.0f,    0.0f,  0.0f, //    | /         | /
-             0.5f,  0.5f, -0.5f,    0.0f,  0.0f,  0.0f,    0.0f,  1.0f,  0.0f,  1.0f,    0.0f,  0.0f, //    |/          |/
-             0.5f, -0.5f, -0.5f,    0.0f,  0.0f,  0.0f,    0.0f,  0.0f,  1.0f,  1.0f,    0.0f,  0.0f, //    3-----------2
+            -0.5f,  0.5f,  0.5f,    0.0f,  0.0f,  0.0f,    1.0f,  0.0f,  0.0f,  1.0f,    0.0f,  0.0f, //       4------------5
+             0.5f,  0.5f,  0.5f,    0.0f,  0.0f,  0.0f,    0.0f,  1.0f,  0.0f,  1.0f,    0.0f,  0.0f, //      /|           /|
+             0.5f, -0.5f,  0.5f,    0.0f,  0.0f,  0.0f,    0.0f,  0.0f,  1.0f,  1.0f,    0.0f,  0.0f, //     / |          / |
+            -0.5f, -0.5f,  0.5f,    0.0f,  0.0f,  0.0f,    1.0f,  1.0f,  0.0f,  1.0f,    0.0f,  0.0f, //    0--|---------1  |
+                                                                                                      //    |  7         |  6
+            -0.5f,  0.5f, -0.5f,    0.0f,  0.0f,  0.0f,    1.0f,  0.0f,  0.0f,  1.0f,    0.0f,  0.0f, //    | /          | /
+             0.5f,  0.5f, -0.5f,    0.0f,  0.0f,  0.0f,    0.0f,  1.0f,  0.0f,  1.0f,    0.0f,  0.0f, //    |/           |/
+             0.5f, -0.5f, -0.5f,    0.0f,  0.0f,  0.0f,    0.0f,  0.0f,  1.0f,  1.0f,    0.0f,  0.0f, //    3------------2
             -0.5f, -0.5f, -0.5f,    0.0f,  0.0f,  0.0f,    1.0f,  1.0f,  0.0f,  1.0f,    0.0f,  0.0
         };
 
@@ -36,23 +37,55 @@ public:
             3,2,6,6,7,3
         };
 
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < 20; j++) {
+                Transform t;
+                t.position.x = i;
+                t.position.z = j;
+                floor[i][j] = t;
+            }
+        }
+
         renderer.setCamera(camera);
         renderer.setClearColor(0.0,0.0,0.0,0.5);
     }
 
 
     void step(float dt) override {
-        rotation += 50 * dt;
-        model = glm::rotate(glm::mat4(1),glm::radians(rotation),glm::vec3(0.0,1.0,0.0));
-        model = glm::scale(model,glm::vec3(0.5,0.5,0.5));
-        
-        model1 = glm::scale(model,glm::vec3(0.5,0.5,0.5));
-        model1 = glm::translate(model,glm::vec3(-1.0,0.0,0.0));
+        update(dt);
+        render();
+    }
+
+    void update(float dt) {
+        glm::vec3 forward = glm::normalize(camera.target - camera.position);
+        glm::vec3 right = glm::normalize(glm::cross(forward, camera.up));
+
+        if(window.getKey(GLFW_KEY_W) == GLFW_PRESS)
+            camera.position += forward * speed * dt;
+        if(window.getKey(GLFW_KEY_S) == GLFW_PRESS)
+            camera.position -= forward * speed * dt;
+        if(window.getKey(GLFW_KEY_A) == GLFW_PRESS)
+            camera.position -= right * speed * dt;
+        if(window.getKey(GLFW_KEY_D) == GLFW_PRESS)
+            camera.position += right * speed * dt;
+        if(window.getKey(GLFW_KEY_SPACE) == GLFW_PRESS)
+            camera.position += camera.up * speed * dt;
+        if(window.getKey(GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
+            camera.position += glm::vec3{0.0,-1.0,0.0} * speed * dt;
+
+        camera.target = camera.position + forward;
 
 
+        transform.rotation.z += 1 * dt;
+        transform.rotation.y += 1 * dt;
+    }
+
+    void render() {
         renderer.begin();
-        renderer.draw(mesh,shader, model);
-        renderer.draw(mesh,shader, model1);
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < 20; j++)
+            renderer.draw(mesh,shader, floor[i][j]);
+        }
         renderer.end();
     }
 };

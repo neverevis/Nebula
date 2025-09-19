@@ -1,4 +1,4 @@
 #pragma once
 
-#include "Nebula/Window.h"
-#include "Nebula/Application.h"
+#include "Nebula/Core/Window.h"
+#include "Nebula/Core/Application.h"

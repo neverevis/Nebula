@@ -55,22 +55,23 @@ file(GLOB_RECURSE SOURCES src/*.cpp)
 
 add_executable(Nebula ${SOURCES}
         src/SandBox/sandbox.cpp
-        src/Nebula/Window.cpp
-        src/Nebula/Application.cpp
-        src/Nebula/Renderer.cpp
-        src/Nebula/Shader.cpp
-        src/Nebula/Shader.h
-        src/Nebula/Mesh.cpp
-        src/Nebula/Mesh.h
-        src/Nebula/Vertex.h
-        src/Nebula/VBO.cpp
-        src/Nebula/VBO.h
-        src/Nebula/VAO.cpp
-        src/Nebula/VAO.h
-        src/Nebula/EBO.cpp
-        src/Nebula/EBO.h
-        src/Nebula/Camera.cpp
-        src/Nebula/Camera.h
+        src/Nebula/Core/Window.cpp
+        src/Nebula/Core/Application.cpp
+        src/Nebula/Graphics/Renderer.cpp
+        src/Nebula/Graphics/Shader.cpp
+        src/Nebula/Graphics/Shader.h
+        src/Nebula/Graphics/Mesh.cpp
+        src/Nebula/Graphics/Mesh.h
+        src/Nebula/Graphics/VBO.cpp
+        src/Nebula/Graphics/VBO.h
+        src/Nebula/Graphics/VAO.cpp
+        src/Nebula/Graphics/VAO.h
+        src/Nebula/Graphics/EBO.cpp
+        src/Nebula/Graphics/EBO.h
+        src/Nebula/Math/Camera.cpp
+        src/Nebula/Math/Camera.h
+        src/Nebula/Math/Transform.cpp
+        src/Nebula/Math/Transform.h
 )
 
 find_package(OpenGL REQUIRED)
