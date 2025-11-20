@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            //config name
+            "name": "Launch",
+            //which debugger it'll use (cppvsdbg or cppdbg)
+            "type": "cppvsdbg",
+            //start program (launch) or attach existing process (attach)
+            "request": "launch",
+            //path to executable that it'll debug
+            "program": "${workspaceFolder}/game",
+            //program arguments
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal"
+        }
+
+    ]
+}
