@@ -10,12 +10,14 @@ cyan='\e[36m'
 white='\e[37m'
 reset='\e[0m'
 
-libs=-luser32
-warnings=-Wno-writable-strings
+includes='-I F:/VulkanSDK/1.4.321.1/Include'
+links='-L F:/VulkanSDK/1.4.321.1/Lib'
+libs='-luser32 -lvulkan-1'
+warnings='-Wno-writable-strings -Wno-format-security'
 
 echo -e "${yellow}Building...${reset}"
 
-clang++ src/main.cpp -o game.exe $libs $warnings
+clang++ src/main.cpp src/platform/win32_window.cpp -o game.exe $warnings $includes $links $libs
 status=$?
 
 if [[ $status -eq 0 ]]; then
