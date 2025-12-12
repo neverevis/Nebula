@@ -1,11 +1,13 @@
 #pragma once
 #include <string>
 
+typedef void* native_handle;
+
 class Window
 {
 public:
-    void* handle;
-    bool  close_flag;
+    native_handle   handle;
+    bool            close_flag;
 
     Window(int width, int height, const std::string& title);
     ~Window();

@@ -17,7 +17,7 @@ shopt -s globstar
 includes='-Iexternal -Isrc'
 links=''
 libs='-luser32 -lopengl32 -lgdi32'
-warnings='-Wno-writable-strings -Wno-format-security'
+warnings='-Wno-writable-strings -Wno-format-security -Wno-c++17-extensions'
 
 echo -e "${yellow}Building...${reset}"
 

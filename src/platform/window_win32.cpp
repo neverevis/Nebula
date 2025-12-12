@@ -14,7 +14,10 @@ LRESULT CALLBACK wndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
     switch(msg)
     {
         case WM_CLOSE: window->close_flag = true; break;
-        case WM_KEYDOWN: log_trace("tecla pressionada!");
+        case WM_KEYDOWN:
+        {
+            log_trace("%d",wParam);
+        }
     }
 
     return DefWindowProcA(hWnd, msg, wParam, lParam);
