@@ -17,11 +17,11 @@ shopt -s globstar
 includes='-Iexternal -Isrc'
 links=''
 libs='-luser32 -lopengl32 -lgdi32'
-warnings='-Wno-writable-strings -Wno-format-security -Wno-c++17-extensions'
+warnings='-Wno-writable-strings -Wno-format-security -Wno-c++17-extensions -Wno-unused-value'
 
 echo -e "${yellow}Building...${reset}"
 
-clang++ src/**/*.cpp -o game.exe $warnings $includes $links $libs
+clang++ src/**/*.cpp -o sandbox.exe $warnings $includes $links $libs
 status=$?
 
 if [[ $status -eq 0 ]]; then

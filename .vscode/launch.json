@@ -9,7 +9,7 @@
             //start program (launch) or attach existing process (attach)
             "request": "launch",
             //path to executable that it'll debug
-            "program": "${workspaceFolder}/game",
+            "program": "${workspaceFolder}/sandbox",
             //program arguments
             "args": [],
             "cwd": "${workspaceFolder}",

@@ -1,4 +1,4 @@
-#include <platform/definitions.h>
+#include <platform/platform.h>
 #ifdef PLATFORM_WINDOWS
 
 #include <platform/gl_renderer.h>
@@ -6,53 +6,97 @@
 #include <wglext.h>
 #include <utils/log.h>
 
-#include <windows.h>
-
 bool gl_load_context(Window& window)
 {
-    HDC hdc = GetDC((HWND) window.handle);
+    PFNWGLCREATECONTEXTATTRIBSARBPROC wglCreateContextAttribsARB;
+    PFNWGLCHOOSEPIXELFORMATARBPROC wglChoosePixelFormatARB;
+
+    //setting legacy context
+    {
+        Window dummy(100,100,"");
+
+        PIXELFORMATDESCRIPTOR pfd = {};
+        pfd.nSize = sizeof(PIXELFORMATDESCRIPTOR);
+        pfd.nVersion = 1;
+        pfd.dwFlags = PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER;
+        pfd.iPixelType = PFD_TYPE_RGBA;
+        pfd.iLayerType = PFD_MAIN_PLANE;
+        pfd.cColorBits = 32;
+        pfd.cDepthBits = 24;
+        pfd.cStencilBits = 8;
+
+        int pixelFormat = ChoosePixelFormat(dummy.data->handle_device_context, &pfd);
+
+        if(!SetPixelFormat(dummy.data->handle_device_context, pixelFormat, &pfd))
+        {
+            MessageBoxA(nullptr, "Failed to set Pixel Format", "Error", MB_OK | MB_ICONERROR);
+            log_error("Failed to set Pixel format");
+            return false;
+        }
+
+        HGLRC legacy_context = wglCreateContext(dummy.data->handle_device_context);
+
+        if(!legacy_context)
+        {
+            MessageBoxA(nullptr, "Failed to create legacy OpenGL context", "Error", MB_OK | MB_ICONERROR);
+            log_error("Failed to create legacy OpenGL context");
+            return false;
+        }
+
+        if(!wglMakeCurrent(dummy.data->handle_device_context, legacy_context))
+        {
+            MessageBoxA(nullptr, "Failed to make the OpenGL context current", "Error", MB_OK | MB_ICONERROR);
+            log_error("Failed to make the OpenGL context current");
+            return false;
+        }
+
+        //loading modern wgl functions
+        wglCreateContextAttribsARB =    (PFNWGLCREATECONTEXTATTRIBSARBPROC) wglGetProcAddress("wglCreateContextAttribsARB");
+        wglChoosePixelFormatARB =       (PFNWGLCHOOSEPIXELFORMATARBPROC)    wglGetProcAddress("wglChoosePixelFormatARB");
+
+        if(!wglCreateContextAttribsARB || !wglChoosePixelFormatARB)
+        {
+            MessageBoxA(nullptr, "Failed to load wgl ARB functions","Error", MB_ICONERROR | MB_OK);
+            log_error("Failed to load Failed to load wgl ARB functions from driver");
+            return false;
+        }
+
+        //unbinding GL context, deleting GL context and deleting device context
+        wglMakeCurrent(dummy.data->handle_device_context, nullptr);
+        wglDeleteContext(legacy_context);
+    }
+    
+    int pixelAttribs[] =
+    {
+        WGL_DRAW_TO_WINDOW_ARB, GL_TRUE,
+        WGL_SUPPORT_OPENGL_ARB, GL_TRUE,
+        WGL_DOUBLE_BUFFER_ARB, GL_TRUE,
+        WGL_SWAP_METHOD_ARB, WGL_SWAP_COPY_ARB,
+        WGL_PIXEL_TYPE_ARB, WGL_TYPE_RGBA_ARB,
+        WGL_ACCELERATION_ARB, WGL_FULL_ACCELERATION_ARB,
+        WGL_COLOR_BITS_ARB, 32,
+        WGL_DEPTH_BITS_ARB, 24,
+        WGL_STENCIL_BITS_ARB, 8,
+        0
+    };
+
+    UINT numPixelFormats;
+    int pixelFormat;
+
+    if(!wglChoosePixelFormatARB(window.data->handle_device_context, pixelAttribs, 0, 1, &pixelFormat, &numPixelFormats))
+    {
+        MessageBoxA(nullptr, "Failed to choose pixel format ARB","Error", MB_ICONERROR | MB_OK);
+        log_error("Failed to choose pixel format ARB");
+        return false;
+    }
 
     PIXELFORMATDESCRIPTOR pfd = {};
-    pfd.nSize = sizeof(PIXELFORMATDESCRIPTOR);
-    pfd.nVersion = 1;
-    pfd.dwFlags = PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER;
-    pfd.iPixelType = PFD_TYPE_RGBA;
-    pfd.iLayerType = PFD_MAIN_PLANE;
-    pfd.cColorBits = 32;
-    pfd.cDepthBits = 24;
-    pfd.cStencilBits = 8;
-    
-    int pixelFormat = ChoosePixelFormat(hdc, &pfd);
+    DescribePixelFormat(window.data->handle_device_context, pixelFormat, sizeof(PIXELFORMATDESCRIPTOR), &pfd);
 
-    if(!SetPixelFormat(hdc, pixelFormat, &pfd))
+    if(!SetPixelFormat(window.data->handle_device_context, pixelFormat, &pfd))
     {
-        MessageBoxA(nullptr, "Failed to set Pixel Format", "Error", MB_OK | MB_ICONERROR);
+        MessageBoxA(nullptr, "Failed to set modern Pixel Format", "Error", MB_OK | MB_ICONERROR);
         log_error("Failed to set Pixel format");
-        return false;
-    }
-
-    HGLRC legacy_context = wglCreateContext(hdc);
-
-    if(!legacy_context)
-    {
-        MessageBoxA(nullptr, "Failed to create legacy OpenGL context", "Error", MB_OK | MB_ICONERROR);
-        log_error("Failed to create legacy OpenGL context");
-        return false;
-    }
-
-    if(!wglMakeCurrent(hdc, legacy_context))
-    {
-        MessageBoxA(nullptr, "Failed to make the OpenGL context current", "Error", MB_OK | MB_ICONERROR);
-        log_error("Failed to make the OpenGL context current");
-        return false;
-    }
-
-    PFNWGLCREATECONTEXTATTRIBSARBPROC wglCreateContextAttribsARB = (PFNWGLCREATECONTEXTATTRIBSARBPROC) wglGetProcAddress("wglCreateContextAttribsARB");
-
-    if(!wglCreateContextAttribsARB)
-    {
-        MessageBoxA(nullptr, "Failed to load wglCreateContextAttribsARB function","Error", MB_ICONERROR | MB_OK);
-        log_error("Failed to load wglCreateContextAttribsARB function from driver");
         return false;
     }
 
@@ -64,7 +108,7 @@ bool gl_load_context(Window& window)
         0
     };
 
-    HGLRC modern_context = wglCreateContextAttribsARB(hdc, nullptr, attribs);
+    HGLRC modern_context = wglCreateContextAttribsARB(window.data->handle_device_context, nullptr, attribs);
 
     if(!modern_context)
     {
@@ -73,10 +117,7 @@ bool gl_load_context(Window& window)
         return false;
     }
 
-    wglMakeCurrent(nullptr, nullptr);
-    wglDeleteContext(legacy_context);
-
-    if(!wglMakeCurrent(hdc, modern_context))
+    if(!wglMakeCurrent(window.data->handle_device_context, modern_context))
     {
         MessageBoxA(nullptr, "Failed make modern GL context current", "Error", MB_ICONERROR | MB_OK);
         log_error("Failed make modern GL context current");

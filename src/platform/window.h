@@ -1,12 +1,12 @@
 #pragma once
 #include <string>
 
-typedef void* native_handle;
+struct Platform_Data;
 
 class Window
 {
 public:
-    native_handle   handle;
+    Platform_Data*   data;
     bool            close_flag;
 
     Window(int width, int height, const std::string& title);

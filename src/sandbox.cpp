@@ -9,7 +9,7 @@ float vertices[] = {
 };
 
 const char* vertexShaderSrc = R"(
-#version 330 core
+#version 460 core
 layout(location = 0) in vec3 aPos;
 layout(location = 1) in vec3 aColor;
 out vec3 vertexColor;
@@ -21,7 +21,7 @@ void main()
 )";
 
 const char* fragmentShaderSrc = R"(
-#version 330 core
+#version 460 core
 out vec4 FragColor;
 in vec3 vertexColor;
 void main()
@@ -32,7 +32,7 @@ void main()
 
 int main()
 {
-    Window window(800, 800, "triangulo moderno");
+    Window window(800, 800, "sandbox");
     gl_load_context(window);
     gl_load_functions();
 
