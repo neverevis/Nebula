@@ -2,10 +2,11 @@
 
 #include <platform/window.h>
 #include <glcorearb.h>
-#include <GL/gl.h>
-#include <glext.h>
 
 //OpenGL functions pointers
+inline PFNGLDRAWARRAYSPROC                  glDrawArrays_ptr;
+inline PFNGLCLEARCOLORPROC                  glClearColor_ptr;
+inline PFNGLCLEARPROC                       glClear_ptr;
 inline PFNGLCREATEBUFFERSPROC               glCreateBuffers_ptr;
 inline PFNGLNAMEDBUFFERDATAPROC             glNamedBufferData_ptr;
 inline PFNGLCREATEVERTEXARRAYSPROC          glCreateVertexArrays_ptr;
@@ -29,8 +30,10 @@ inline PFNGLPROGRAMUNIFORM4FPROC            glProgramUniform4f_ptr;
 inline PFNGLPROGRAMUNIFORMMATRIX4FVPROC     glProgramUniformMatrix4fv_ptr;
 inline PFNGLUSEPROGRAMPROC                  glUseProgram_ptr;
 inline PFNGLBINDVERTEXARRAYPROC             glBindVertexArray_ptr;
-inline PFNGLDRAWARRAYSPROC                  glDrawArrays_ptr;
 
+#define glDrawArrays                glDrawArrays_ptr
+#define glClearColor                glClearColor_ptr
+#define glClear                     glClear_ptr
 #define glCreateBuffers             glCreateBuffers_ptr
 #define glNamedBufferData           glNamedBufferData_ptr
 #define glCreateVertexArrays        glCreateVertexArrays_ptr
@@ -54,13 +57,15 @@ inline PFNGLDRAWARRAYSPROC                  glDrawArrays_ptr;
 #define glProgramUniformMatrix4fv   glProgramUniformMatrix4fv_ptr
 #define glUseProgram                glUseProgram_ptr
 #define glBindVertexArray           glBindVertexArray_ptr
-#define glDrawArrays                glDrawArrays_ptr
 
 bool gl_load_context(Window& window);
 PROC gl_load_proc(const char* fn);
 
 inline bool gl_load_functions()
 {
+    glDrawArrays_ptr =                  (PFNGLDRAWARRAYSPROC)                   gl_load_proc("glDrawArrays");
+    glClearColor_ptr =                  (PFNGLCLEARCOLORPROC)                   gl_load_proc("glClearColor");
+    glClear_ptr =                       (PFNGLCLEARPROC)                        gl_load_proc("glClear");
     glCreateBuffers_ptr =               (PFNGLCREATEBUFFERSPROC)                gl_load_proc("glCreateBuffers");
     glNamedBufferData_ptr =             (PFNGLNAMEDBUFFERDATAPROC)              gl_load_proc("glNamedBufferData");
     glCreateVertexArrays_ptr =          (PFNGLCREATEVERTEXARRAYSPROC)           gl_load_proc("glCreateVertexArrays");
@@ -84,7 +89,6 @@ inline bool gl_load_functions()
     glProgramUniformMatrix4fv_ptr =     (PFNGLPROGRAMUNIFORMMATRIX4FVPROC)      gl_load_proc("glProgramUniformMatrix4fv");
     glUseProgram_ptr =                  (PFNGLUSEPROGRAMPROC)                   gl_load_proc("glUseProgram");
     glBindVertexArray_ptr =             (PFNGLBINDVERTEXARRAYPROC)              gl_load_proc("glBindVertexArray");
-    glDrawArrays_ptr =                  (PFNGLDRAWARRAYSPROC)                   gl_load_proc("glDrawArrays");
 
     return true;
 }

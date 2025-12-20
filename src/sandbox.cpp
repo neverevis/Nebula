@@ -101,7 +101,7 @@ int main()
     {
         window.poll_events();
 
-        glClearColor(1,1,1,1);
+        glClearColor(0.5,1,0.5,0.7);
         glClear(GL_COLOR_BUFFER_BIT);
 
         glUseProgram(shaderProgram);

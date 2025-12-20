@@ -1,15 +1,20 @@
 #pragma once
-#include <string>
+
+#define word char
+
+#define RESIZABLE       0x1
+#define CLOSE_BUTTON    0x2
 
 struct Platform_Data;
 
 class Window
 {
 public:
-    Platform_Data*   data;
+    Platform_Data*  data;
     bool            close_flag;
+    word            flags;
 
-    Window(int width, int height, const std::string& title);
+    Window(int width, int height, const char* title);
     ~Window();
 
     void show();

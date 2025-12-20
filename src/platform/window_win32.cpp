@@ -22,20 +22,17 @@ LRESULT CALLBACK wndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
     return DefWindowProcA(hWnd, msg, wParam, lParam);
 }
 
-Window::Window(int width, int height, const std::string& title):
+Window::Window(int width, int height, const char* title):
 close_flag(false),
 data(new Platform_Data)
 {
-    data->handle_window = nullptr;
-    data->handle_device_context = nullptr;
-    data->handle_gl_render_context = nullptr;
-
     if(!class_registered)
     {
         WNDCLASSA wc = {};
         wc.hInstance = GetModuleHandleA(nullptr);
         wc.lpfnWndProc = wndProc;
         wc.lpszClassName = "window_class";
+        wc.style = CS_OWNDC;
 
          if(!RegisterClassA(&wc))
         {
@@ -51,12 +48,10 @@ data(new Platform_Data)
     width = borderRect.right - borderRect.left;
     height = borderRect.bottom - borderRect.top;
 
-    int screen_x = GetSystemMetrics(SM_CXSCREEN);
-    int screen_y = GetSystemMetrics(SM_CYSCREEN);
-    int x = screen_x/2 - width/2;
-    int y = screen_y/2 - height/2;
+    int x = GetSystemMetrics(SM_CXSCREEN)/2 - width/2;
+    int y = GetSystemMetrics(SM_CYSCREEN)/2 - height/2;
     
-    data->handle_window = CreateWindowExA(0, "window_class", title.c_str(), WS_OVERLAPPEDWINDOW, x, y, width, height, nullptr, nullptr, GetModuleHandleA(nullptr), nullptr);
+    data->handle_window = CreateWindowExA(0, "window_class", title, WS_OVERLAPPEDWINDOW ^ WS_MAXIMIZEBOX, x, y, width, height, nullptr, nullptr, GetModuleHandleA(nullptr), nullptr);
     
     if (!data->handle_window)
     {

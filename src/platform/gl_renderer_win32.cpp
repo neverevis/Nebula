@@ -71,12 +71,15 @@ bool gl_load_context(Window& window)
         WGL_DRAW_TO_WINDOW_ARB, GL_TRUE,
         WGL_SUPPORT_OPENGL_ARB, GL_TRUE,
         WGL_DOUBLE_BUFFER_ARB, GL_TRUE,
-        WGL_SWAP_METHOD_ARB, WGL_SWAP_COPY_ARB,
-        WGL_PIXEL_TYPE_ARB, WGL_TYPE_RGBA_ARB,
-        WGL_ACCELERATION_ARB, WGL_FULL_ACCELERATION_ARB,
+
         WGL_COLOR_BITS_ARB, 32,
         WGL_DEPTH_BITS_ARB, 24,
         WGL_STENCIL_BITS_ARB, 8,
+
+        WGL_ACCELERATION_ARB, WGL_FULL_ACCELERATION_ARB,
+        WGL_PIXEL_TYPE_ARB, WGL_TYPE_RGBA_ARB,
+        
+        WGL_SAMPLES_ARB, 4,
         0
     };
 
@@ -131,7 +134,19 @@ PROC gl_load_proc(const char* fn)
 {
     PROC proc = wglGetProcAddress(fn);
 
-    return proc;
+    if(proc)
+    {
+        return proc;
+    }
+
+    HMODULE opengl32 = LoadLibraryA("opengl32.dll");
+
+    if(!opengl32)
+    {
+        return nullptr;
+    }
+
+    return GetProcAddress(opengl32, fn);
 }
 
 #endif
