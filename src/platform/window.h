@@ -7,18 +7,21 @@
 
 struct Platform_Data;
 
-class Window
+namespace NBL
 {
-public:
-    Platform_Data*  data;
-    bool            close_flag;
-    word            flags;
+    class Window
+    {
+    public:
+        Platform_Data*  data;
+        bool            close_flag;
+        word            flags;
 
-    Window(int width, int height, const char* title);
-    ~Window();
+        Window(int width, int height, const char* title);
+        ~Window();
 
-    void show();
-    void poll_events();
-    void swap_buffers();
-    bool should_close();
-};
+        void show();
+        void poll_events();
+        void swap_buffers();
+        bool should_close();
+    };
+}

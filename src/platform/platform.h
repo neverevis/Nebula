@@ -31,6 +31,15 @@
 #endif
 
 #ifdef PLATFORM_LINUX
+
+    #include <X11/Xlib.h>
+
+    struct Platform_Data
+    {
+        Display*    display;
+        Window      window;
+    };
+
 #endif
 
 #ifdef PLATFORM_APPLE

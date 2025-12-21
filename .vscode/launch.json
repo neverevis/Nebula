@@ -5,7 +5,7 @@
             //config name
             "name": "Launch",
             //which debugger it'll use (cppvsdbg or cppdbg)
-            "type": "cppvsdbg",
+            "type": "cppdbg",
             //start program (launch) or attach existing process (attach)
             "request": "launch",
             //path to executable that it'll debug

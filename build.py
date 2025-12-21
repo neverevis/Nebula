@@ -4,7 +4,7 @@ import glob
 
 # =-=-=-=-= Global Settings =-=-=-=-=-=
 
-COMPILER        = "CLANG++"
+COMPILER        = "clang++"
 SOURCE_PATH     = "src"
 APP_NAME        = "sandbox"
 
@@ -19,7 +19,7 @@ if OS == "Windows":
     LIBRARIES = "-luser32 -lopengl32 -lgdi32"
 
 elif OS == "Linux":
-    LIBRARIES = "-lGL -lX11"
+    LIBRARIES = "-lX11"
 
 
 # =-=-=-=-= Logging Colors =-=-=-=-=-=
@@ -59,7 +59,7 @@ if OS == "Windows":
 print(f"{BRIGHT_CYAN}Platform:{BRIGHT_BLUE} {OS}{RESET}")
 
 print("")
-print(f"{YELLOW}Building...")
+print(f"{YELLOW}Building...{RESET}")
 subprocess.run(f"{COMPILER} {SOURCE_CODE} -o {APP_NAME} {LIBRARIES} {INCLUDES} {WARNINGS}", shell=True)
-print(f"{GREEN}Build Done!")
+print(f"{GREEN}Build Done!{RESET}")
     
