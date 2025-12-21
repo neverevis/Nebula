@@ -4,7 +4,7 @@
         {
             "label": "Build",
             "type": "shell",
-            "command": "sh build.sh",
+            "command": "python build.py",
             "group": {
                 "kind": "build",
                 "isDefault": true

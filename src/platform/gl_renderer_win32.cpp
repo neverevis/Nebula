@@ -130,9 +130,9 @@ bool gl_load_context(Window& window)
     return true;
 }
 
-PROC gl_load_proc(const char* fn)
+void* gl_load_proc(const char* fn)
 {
-    PROC proc = wglGetProcAddress(fn);
+    void* proc = (void*) wglGetProcAddress(fn);
 
     if(proc)
     {
@@ -146,7 +146,7 @@ PROC gl_load_proc(const char* fn)
         return nullptr;
     }
 
-    return GetProcAddress(opengl32, fn);
+    return (void*) GetProcAddress(opengl32, fn);
 }
 
 #endif

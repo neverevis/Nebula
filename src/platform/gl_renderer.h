@@ -59,7 +59,7 @@ inline PFNGLBINDVERTEXARRAYPROC             glBindVertexArray_ptr;
 #define glBindVertexArray           glBindVertexArray_ptr
 
 bool gl_load_context(Window& window);
-PROC gl_load_proc(const char* fn);
+void* gl_load_proc(const char* fn);
 
 inline bool gl_load_functions()
 {
