@@ -6,14 +6,14 @@
 #include <wglext.h>
 #include <utils/log.h>
 
-bool gl_load_context(Window& window)
+bool gl_load_context(NBL::Window& window)
 {
     PFNWGLCREATECONTEXTATTRIBSARBPROC wglCreateContextAttribsARB;
     PFNWGLCHOOSEPIXELFORMATARBPROC wglChoosePixelFormatARB;
 
     //setting legacy context
     {
-        Window dummy(100,100,"");
+        NBL::Window dummy(100,100,"");
 
         PIXELFORMATDESCRIPTOR pfd = {};
         pfd.nSize = sizeof(PIXELFORMATDESCRIPTOR);

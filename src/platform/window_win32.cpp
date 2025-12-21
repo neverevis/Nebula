@@ -8,7 +8,7 @@ static bool class_registered = false;
 
 LRESULT CALLBACK wndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
-    Window* window = (Window*) GetWindowLongPtr(hWnd, GWLP_USERDATA);
+    NBL::Window* window = (NBL::Window*) GetWindowLongPtr(hWnd, GWLP_USERDATA);
 
     switch(msg)
     {
@@ -22,7 +22,7 @@ LRESULT CALLBACK wndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
     return DefWindowProcA(hWnd, msg, wParam, lParam);
 }
 
-Window::Window(int width, int height, const char* title):
+NBL::Window::Window(int width, int height, const char* title):
 close_flag(false),
 data(new Platform_Data)
 {
@@ -68,23 +68,23 @@ data(new Platform_Data)
     SetWindowLongPtr(data->handle_window, GWLP_USERDATA, (LONG_PTR)this);
 }
 
-Window::~Window()
+NBL::Window::~Window()
 {
     ReleaseDC(data->handle_window ,data->handle_device_context);
     DestroyWindow(data->handle_window);
     delete data;
 }
 
-void Window::show()
+void NBL::Window::show()
 {
     ShowWindow(data->handle_window, SW_SHOW);
 }
 
-bool Window::should_close(){
+bool NBL::Window::should_close(){
     return close_flag;
 }
 
-void Window::poll_events()
+void NBL::Window::poll_events()
 {
     MSG msg;
     
@@ -95,7 +95,7 @@ void Window::poll_events()
     }
 }
 
-void Window::swap_buffers()
+void NBL::Window::swap_buffers()
 {
     SwapBuffers(data->handle_device_context);
 }
