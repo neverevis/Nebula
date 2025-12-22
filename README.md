@@ -25,4 +25,4 @@ python build.py
 ```
 
 ### This project has a .vscode folder configuration and can be opened on VSCode
-Onde the Folder is opened inside VScode, it can be compiled with `Ctrl + Shift + B` and executed with `F5`.
+Once the folder is opened inside VScode, it can be compiled with `Ctrl + Shift + B` and executed with `F5`.
