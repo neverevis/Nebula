@@ -22,7 +22,7 @@ LRESULT CALLBACK wndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
     return DefWindowProcA(hWnd, msg, wParam, lParam);
 }
 
-NBL::Window::Window(int width, int height, const char* title):
+NBL::Window::Window(int width, int height, const char* title, FLAGS flags):
 close_flag(false),
 data(new Platform_Data)
 {
@@ -50,8 +50,24 @@ data(new Platform_Data)
 
     int x = GetSystemMetrics(SM_CXSCREEN)/2 - width/2;
     int y = GetSystemMetrics(SM_CYSCREEN)/2 - height/2;
+
+    DWORD style = 0;
+
+    if(flags & BUTTON_MENU)
+    {
+        style |= WS_SYSMENU;
+    }
+    if(flags & RESIZE_BUTTON)
+    {
+        style |= WS_SIZEBOX;
+    }
+    if(flags & MINIMIZE_BUTTON)
+    {
+        style |= WS_MINIMIZEBOX;
+        style |= WS_MAXIMIZEBOX;
+    }
     
-    data->handle_window = CreateWindowExA(0, "window_class", title, WS_OVERLAPPEDWINDOW ^ WS_MAXIMIZEBOX, x, y, width, height, nullptr, nullptr, GetModuleHandleA(nullptr), nullptr);
+    data->handle_window = CreateWindowExA(0, "window_class", title, style, x, y, width, height, nullptr, nullptr, GetModuleHandleA(nullptr), nullptr);
     
     if (!data->handle_window)
     {

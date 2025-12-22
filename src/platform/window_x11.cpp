@@ -7,7 +7,7 @@
 
 static Atom WM_DELETE_WINDOW;
 
-NBL::Window::Window(int width, int height, const char* title) :
+NBL::Window::Window(int width, int height, const char* title, FLAGS flags) :
 data(new Platform_Data),
 close_flag(false)
 {

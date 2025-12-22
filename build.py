@@ -7,6 +7,7 @@ import glob
 COMPILER        = "clang++"
 SOURCE_PATH     = "src"
 APP_NAME        = "sandbox"
+DEBUG           = False
 
 INCLUDES        = "-Iexternal -Isrc"
 WARNINGS        = "-Wno-writable-strings -Wno-format-security -Wno-c++17-extensions -Wno-unused-value"
@@ -60,6 +61,11 @@ print(f"{BRIGHT_CYAN}Platform:{BRIGHT_BLUE} {OS}{RESET}")
 
 print("")
 print(f"{YELLOW}Building...{RESET}")
-subprocess.run(f"{COMPILER} {SOURCE_CODE} -o {APP_NAME} {LIBRARIES} {INCLUDES} {WARNINGS}", shell=True)
+
+if DEBUG:
+    subprocess.run(f"{COMPILER} {SOURCE_CODE} -o {APP_NAME} {LIBRARIES} {INCLUDES} {WARNINGS}", shell=True)
+else:
+    subprocess.run(f"{COMPILER} {SOURCE_CODE} -o {APP_NAME} -O2 -DNDEBUG {LIBRARIES} {INCLUDES} {WARNINGS}", shell=True)
+
 print(f"{GREEN}Build Done!{RESET}")
     

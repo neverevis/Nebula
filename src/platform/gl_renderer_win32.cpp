@@ -13,7 +13,7 @@ bool gl_load_context(NBL::Window& window)
 
     //setting legacy context
     {
-        NBL::Window dummy(100,100,"");
+        NBL::Window dummy(100,100,"",0);
 
         PIXELFORMATDESCRIPTOR pfd = {};
         pfd.nSize = sizeof(PIXELFORMATDESCRIPTOR);
