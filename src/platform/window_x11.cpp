@@ -3,6 +3,7 @@
 
 #include <platform/window.h>
 #include <X11/Xlib.h>
+#include <X11/Xutil.h>
 #include <utils/log.h>
 
 static Atom WM_DELETE_WINDOW;
@@ -19,10 +20,7 @@ close_flag(false)
 
     int screen = XDefaultScreen(data->display);
 
-    int x = XDisplayWidth(data->display, screen)/2 - width/2;
-    int y = XDisplayHeight(data->display, screen)/2 - height/2;
-
-    data->window = XCreateSimpleWindow(data->display, RootWindow(data->display, screen), x, y, width, height, 1, BlackPixel(data->display, screen), WhitePixel(data->display, screen));
+    data->window = XCreateSimpleWindow(data->display, RootWindow(data->display, screen), 0, 0, width, height, 1, BlackPixel(data->display, screen), WhitePixel(data->display, screen));
 
     XStoreName(data->display, data->window, title);
 
@@ -61,7 +59,17 @@ bool NBL::Window::should_close()
 
 void NBL::Window::show()
 {
+    XWindowAttributes attr;
+    XGetWindowAttributes(data->display, data->window, &attr);
+
+    int screen = XDefaultScreen(data->display);
+
+    int x = XDisplayWidth(data->display, screen)/2 - attr.width/2;
+    int y = XDisplayHeight(data->display, screen)/2 - attr.height/2;
+
     XMapWindow(data->display, data->window);
+
+    XMoveWindow(data->display, data->window, x, y);
 }
 
 #endif
