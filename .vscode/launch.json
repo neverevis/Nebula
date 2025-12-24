@@ -13,7 +13,7 @@
             //program arguments
             "args": [],
             "cwd": "${workspaceFolder}",
-            "console": "integratedTerminal",
+            "externalConsole": true  // terminal do VSCode
         }
 
     ]

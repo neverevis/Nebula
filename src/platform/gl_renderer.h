@@ -30,6 +30,7 @@ inline PFNGLPROGRAMUNIFORM4FPROC            glProgramUniform4f_ptr;
 inline PFNGLPROGRAMUNIFORMMATRIX4FVPROC     glProgramUniformMatrix4fv_ptr;
 inline PFNGLUSEPROGRAMPROC                  glUseProgram_ptr;
 inline PFNGLBINDVERTEXARRAYPROC             glBindVertexArray_ptr;
+inline PFNGLGETSTRINGPROC                   glGetString_ptr;
 
 #define glDrawArrays                glDrawArrays_ptr
 #define glClearColor                glClearColor_ptr
@@ -57,6 +58,7 @@ inline PFNGLBINDVERTEXARRAYPROC             glBindVertexArray_ptr;
 #define glProgramUniformMatrix4fv   glProgramUniformMatrix4fv_ptr
 #define glUseProgram                glUseProgram_ptr
 #define glBindVertexArray           glBindVertexArray_ptr
+#define glGetString                 glGetString_ptr;
 
 bool gl_load_context(NBL::Window& window);
 void* gl_load_proc(const char* fn);
@@ -89,6 +91,7 @@ inline bool gl_load_functions()
     glProgramUniformMatrix4fv_ptr =     (PFNGLPROGRAMUNIFORMMATRIX4FVPROC)      gl_load_proc("glProgramUniformMatrix4fv");
     glUseProgram_ptr =                  (PFNGLUSEPROGRAMPROC)                   gl_load_proc("glUseProgram");
     glBindVertexArray_ptr =             (PFNGLBINDVERTEXARRAYPROC)              gl_load_proc("glBindVertexArray");
+    glGetString_ptr =                   (PFNGLGETSTRINGPROC)                    gl_load_proc("glGetString");
 
     return true;
 }

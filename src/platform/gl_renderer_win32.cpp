@@ -143,10 +143,17 @@ void* gl_load_proc(const char* fn)
 
     if(!opengl32)
     {
-        return nullptr;
+        proc = nullptr;
     }
 
-    return (void*) GetProcAddress(opengl32, fn);
+    proc = (void*) GetProcAddress(opengl32, fn);
+
+    if(!proc)
+    {
+        log_error("failed to load function: %s", fn);
+    }
+
+    return proc;
 }
 
 #endif
